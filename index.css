@@ -1,42 +1,29 @@
 * {
 }
-h2 {
-    font-family: arial;
-    text-align: center;
-}
-/* 选择 未访问的链接 */
-a:link {
-    text-decoration: none;
-    color: black;
+
+/*::first-letter 选择内容中第一个字符*/
+#paragraph::first-letter {
+    color: lightgreen;
+    font-size:  50px;
+    text-shadow: 1px 1px 3px grey;
 }
 
-/* 选择 悬浮的链接 */
-a:hover {
-    color: orangered;
-}
-/* 选择 激活的链接*/
-a:active {
-    color: lawngreen;
-}
-/* 选择 访问过的链接 */
-a:visited {
-    color: red;
+/*::first-letter 选择内容中第一行内容*/
+#paragraph::first-line {
+    color: blue;
 }
 
-/* 选择 选择过的选择框 */
-input[type="checkbox"]:checked {
-    outline: 2px solid blue
+/*::selection 选择内容中选中的内容*/
+::selection {
+    background-color: red;
+    color: white;
 }
-/* 选择  无法输入text输入框 */
-input[type="text"]:disabled {
-    background-color: lightgrey;
+/*::after 给选中的元素的创造一个虚假的最后子级元素，通常结合"content"属性在内容后面增加一些修饰内容*/
+.plus::after {
+    content: "+"
 }
 
-/* 选择 ID为cool的聚焦的元素 */
-#cool:focus {
-    background-color: aqua;
-}
-/* 选择 为子元素的p的第三个子元素*/
-p:nth-child(3) {
-    color: orangered;
+/*::after 给选中的元素的创造一个虚假的最后子级元素，通常结合"content"属性在内容前面增加一些修饰内容*/
+.plus::before {
+    content: " -";
 }
