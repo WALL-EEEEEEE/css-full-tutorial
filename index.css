@@ -1,0 +1,24 @@
+/* 匹配所有元素 */
+* {
+    font-family: arial;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* 元素匹配器，匹配所有 p元素 */
+p {
+    color: orangered;
+    font-weight: bold;
+}
+/* ID选择器， 匹配ID为id的元素*/
+#id {
+    color: forestgreen;
+    font-family: monospace;
+}
+
+/* 样式选择器， 匹配class属性中*/
+.class {
+    color: dodgerblue;
+    font-weight: 100;
+    font-size: 12px;
+}
