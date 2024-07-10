@@ -1,24 +1,42 @@
-/* 匹配所有元素 */
-* {
+h2 {
     font-family: arial;
-    margin: 0px;
-    padding: 0px;
+    text-align: center;
 }
 
-/* 元素匹配器，匹配所有 p元素 */
-p {
-    color: orangered;
+/*属性选择器， 通过属性名选择*/
+input[type] {
+    border: 2px solid orangered
+}
+
+/*属性选择器， 通过属性值选择*/
+input[type="text"] {
+    background-color: palegreen;
+}
+
+input[type="email"] {
+    background-color: aqua;
+}
+
+input[type="button"] {
+    border: 2px solid green;
+    background-color: dodgerblue;
+    color: white;
     font-weight: bold;
-}
-/* ID选择器， 匹配ID为id的元素*/
-#id {
-    color: forestgreen;
-    font-family: monospace;
+    cursor: pointer;
 }
 
-/* 样式选择器， 匹配class属性中*/
-.class {
-    color: dodgerblue;
-    font-weight: 100;
-    font-size: 12px;
+/*属性选择器，通过属性值模糊匹配 */
+
+/* 匹配以I开头的title的属性值 */
+p[title^="I"] {
+  color: dodgerblue;
+}
+
+/* 匹配以fox结尾的title的属性值 */
+p[title$="fox"] {
+  color: red;
+}
+/* 匹配title的属性值包含Dreamer*/
+p[title~="Dreamer"] {
+ text-decoration: underline;
 }
