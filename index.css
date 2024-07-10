@@ -1,42 +1,32 @@
+* {
+}
 h2 {
     font-family: arial;
     text-align: center;
 }
 
-/*属性选择器， 通过属性名选择*/
-input[type] {
-    border: 2px solid orangered
+/* 通过 "," 选择多个元素 */
+p, button  {
+  /* color: red */
+}
+/* 通过 " " 选择子元素 (包括直接子级元素和非直接子级元素) */
+#outerDiv p {
+    color: blue
 }
 
-/*属性选择器， 通过属性值选择*/
-input[type="text"] {
-    background-color: palegreen;
+/* 通过 ">" 选择直接子元素 */
+#innerDiv > p {
+    color: forestgreen;
 }
 
-input[type="email"] {
-    background-color: aqua;
+/* 通过 "+" 选择后面的第一个元素 */
+h3 + p {
+   color: blue;
+   text-decoration: underline;
 }
 
-input[type="button"] {
-    border: 2px solid green;
-    background-color: dodgerblue;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
 
-/*属性选择器，通过属性值模糊匹配 */
-
-/* 匹配以I开头的title的属性值 */
-p[title^="I"] {
-  color: dodgerblue;
-}
-
-/* 匹配以fox结尾的title的属性值 */
-p[title$="fox"] {
-  color: red;
-}
-/* 匹配title的属性值包含Dreamer*/
-p[title~="Dreamer"] {
- text-decoration: underline;
+/* 通过 "~" 选择前面的第一个元素 */
+p ~ h4 {
+    color: orangered;
 }
