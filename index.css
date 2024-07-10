@@ -22,3 +22,21 @@ a:active {
 a:visited {
     color: red;
 }
+
+/* 选择 选择过的选择框 */
+input[type="checkbox"]:checked {
+    outline: 2px solid blue
+}
+/* 选择  无法输入text输入框 */
+input[type="text"]:disabled {
+    background-color: lightgrey;
+}
+
+/* 选择 ID为cool的聚焦的元素 */
+#cool:focus {
+    background-color: aqua;
+}
+/* 选择 为子元素的p的第三个子元素*/
+p:nth-child(3) {
+    color: orangered;
+}
