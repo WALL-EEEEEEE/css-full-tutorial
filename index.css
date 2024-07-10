@@ -4,29 +4,21 @@ h2 {
     font-family: arial;
     text-align: center;
 }
-
-/* 通过 "," 选择多个元素 */
-p, button  {
-  /* color: red */
-}
-/* 通过 " " 选择子元素 (包括直接子级元素和非直接子级元素) */
-#outerDiv p {
-    color: blue
+/* 选择 未访问的链接 */
+a:link {
+    text-decoration: none;
+    color: black;
 }
 
-/* 通过 ">" 选择直接子元素 */
-#innerDiv > p {
-    color: forestgreen;
-}
-
-/* 通过 "+" 选择后面的第一个元素 */
-h3 + p {
-   color: blue;
-   text-decoration: underline;
-}
-
-
-/* 通过 "~" 选择前面的第一个元素 */
-p ~ h4 {
+/* 选择 悬浮的链接 */
+a:hover {
     color: orangered;
+}
+/* 选择 激活的链接*/
+a:active {
+    color: lawngreen;
+}
+/* 选择 访问过的链接 */
+a:visited {
+    color: red;
 }
