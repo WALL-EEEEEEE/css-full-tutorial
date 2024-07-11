@@ -1,29 +1,12 @@
 * {
+    margin: 0px;
+    padding: 0px;
 }
+/* CSS 是按照从上到下的顺序层级渲染的*/
 
-/*::first-letter 选择内容中第一个字符*/
-#paragraph::first-letter {
-    color: lightgreen;
-    font-size:  50px;
-    text-shadow: 1px 1px 3px grey;
-}
-
-/*::first-letter 选择内容中第一行内容*/
-#paragraph::first-line {
+p {
     color: blue;
 }
-
-/*::selection 选择内容中选中的内容*/
-::selection {
-    background-color: red;
-    color: white;
-}
-/*::after 给选中的元素的创造一个虚假的最后子级元素，通常结合"content"属性在内容后面增加一些修饰内容*/
-.plus::after {
-    content: "+"
-}
-
-/*::after 给选中的元素的创造一个虚假的最后子级元素，通常结合"content"属性在内容前面增加一些修饰内容*/
-.plus::before {
-    content: " -";
+p {
+    color: red;
 }
