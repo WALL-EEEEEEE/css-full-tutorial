@@ -3,16 +3,38 @@
     padding: 0px;
 }
 
-p {
-  background-color: skyblue;
-  display: inline-block;
-  padding: 50px;
-  border: 10px solid limegreen;
-  margin-top: 150px;
-  margin-left: 50px;
+#sentence {
+  /* TEXT ALIGN */
+  text-align: center;
+  text-align: left;
+  text-align: right;
+  text-align: justify;
+
+  /* TEXT DECORATION */
+  text-decoration: underline solid limegreen;
+
+  /* TEXT INDENT */
+  text-indent: 20px;
+
+  /* TEXT TRANSFORM */
+  text-transform: capitalize;
+  text-transform: lowercase;
+  text-transform: uppercase;
 
 }
 
-h3 {
-  margin-top: 100px
+#paragraph {
+  /* TEXT OVERFLOW */
+  overflow: hidden;
+  white-space: nowrap;
+  border: 2px solid limegreen;
+  background-color: lightgray;
+  text-overflow: ellipsis;
+}
+h1 {
+  /* TEXT SHADOW */
+  text-align: center;
+  margin-top: 50px;
+  text-shadow: 2px 2px 5px lightgray;
+  word-spacing: 2px;
 }
