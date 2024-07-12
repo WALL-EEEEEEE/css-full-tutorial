@@ -3,36 +3,17 @@
     padding: 0px;
 }
 
-#container {
-    color: red
-}
+
 p {
-    text-align: center;
-    font-size: 50px;
-    color: green;
-}
+    background-color: red;;
+   /* padding: 20px;  */  /* 上下左右各20px*/
+   /* padding-top: 50px 
+      padding-bottom: 3px;
+      padding-left: 10px;
+      padding-right: 20px;
+   */
+   /* padding: 50px 20px 3px 10px */
+   padding: 40px 5px; /* 上下: 40px 左右: 5px*/
 
-/* 指定继承父级的属性值*/
-.inherit {
-    color: inherit; 
-}
-
-/* 指定默认的浏览器的 */
-.initial {
-    color: initial;
-}
-
-/* 如果元素存在继承关系，那么属性值会继承父级的属性值,
-   否则，属性值为默认浏览器的默认属性
- */
-.unset {
-    color: unset;
-}
-.not {
-    color: unset;
-}
-/* 如用存在定义该属性，那么将属性值设置为原来的值，否则设置为浏览器默认属性值*/
-.revert {
-    color: revert;
 }
 
