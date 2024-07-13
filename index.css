@@ -3,38 +3,18 @@
     padding: 0px;
 }
 
-#sentence {
-  /* TEXT ALIGN */
-  text-align: center;
-  text-align: left;
-  text-align: right;
-  text-align: justify;
-
-  /* TEXT DECORATION */
-  text-decoration: underline solid limegreen;
-
-  /* TEXT INDENT */
-  text-indent: 20px;
-
-  /* TEXT TRANSFORM */
-  text-transform: capitalize;
-  text-transform: lowercase;
-  text-transform: uppercase;
-
+/* 通过CSS导入本地字体 */
+@font-face {
+  font-family: myfont; /* 定义字体的名字 */
+  src: url("./Playwrite_CU//PlaywriteCU-VariableFont_wght.ttf"); /* 指向字体的路径 */
 }
 
-#paragraph {
-  /* TEXT OVERFLOW */
-  overflow: hidden;
-  white-space: nowrap;
-  border: 2px solid limegreen;
-  background-color: lightgray;
-  text-overflow: ellipsis;
-}
 h1 {
-  /* TEXT SHADOW */
   text-align: center;
-  margin-top: 50px;
-  text-shadow: 2px 2px 5px lightgray;
-  word-spacing: 2px;
+  margin-top: 100px;
+  /*font-family: Arial, monospace, fantasy, sans-serif;*/
+  font-family: "myfont";
+  font-size: 50px;
+  font-weight: bolder;
 }
+
