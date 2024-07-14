@@ -2,47 +2,23 @@
     margin: 0px;
     padding: 0px;
 }
+/*  box-sizing 指定盒模型的大小的计算模型
 
-.frame {
-  border: 1px solid lightgrey;
-  border-radius: 10px;
-  box-shadow: 1px 1px 3px lightgrey;
-  display: inline-block;
-  padding: 10px;
-  text-align: center;
-  margin: 10px;
-}
-.frame:hover {
-  box-shadow: 8px 8px 10px lightgrey;
-  cursor: pointer;
-}
-.circle {
+border-box 盒模型的大小计算模型包括padding和border的大小
+border-content 盒模型的大小计算模型不包括padding盒border的大小
+*/
+#red {
   width: 200px;
   height: 200px;
-  border-radius: 50%;
-  border: 1px solid lightgrey;
-  background-color: white;
+  background-color: red;
+  margin: 5px;
+  border: 10px solid black;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-#colorName {
-  background-color: crimson;
-}
-
-#hex {
-  background-color: #dc123d; /* 红绿蓝三色 1,2位表示红色 3,4位表示绿色 5,6位表示蓝色 */
-}
-
-#rgb {
-  background-color: rgb(37, 21, 244); /*红绿蓝三色 1位表示红色 2位表示绿色 3位表示蓝色*/
-}
-
-#rgba {
-  background-color: rgba(37, 21, 244, 0.5); /*红绿蓝三色 1位表示红色 2位表示绿色 3位表示蓝色 4位表示透明度*/
-}
-
-#hsl {
- background-color: hsl(23, 100%, 80%); /* 1位表示色度(hue) 2位表示饱和读(saturation) 3位表示明度(lightness) */
-}
-#hsla {
- background-color: hsla(23, 100%, 80%, 0.5); /* 1位表示色度(hue) 2位表示饱和读(saturation) 3位表示明度(lightness) 4位表示透明度 */
+#blue {
+  width: 50vw; 
+  height: 200px;
+  background-color: blue;
 }
