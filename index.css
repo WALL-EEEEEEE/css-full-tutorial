@@ -3,23 +3,18 @@
     padding: 0px;
 }
 
-div {
-  width: 600px;
-  height: 600px;
-  border: 10px dotted yellow;
-  margin: 50px auto;
-  background-color: green;
-  background-image: url("./images/sonic-icon.png");
-  background-repeat: no-repeat;
-  background-size: cover; /* 指定背景针对元素的大小, cover适当缩放背景，知道填满元素*/
-  background-position: center; /* 指定背景针对元素的位置 */
-  background-clip: border-box; /* 指定元素的背景的延伸覆盖范围, padding-box表示延伸到box的padding位置*/
-  background: url(images/sonic-icon.png) center/cover no-repeat green;
+/*block元素的宽度是父级元素的100%*/
+p,h2,h3,h4 {
+  border: 1px solid red;
 }
 
-body {
-  background-image: url("./images/sonic-icon.png");
-  background-size: 200px;
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* 指定背景图片定位是否相对视窗位置或者滚动位置, fixed表示相对视窗位置啊，scroll表示相对滚动位置 */
+/*span, a, img 都是 inline元素, inline元素只会占用它需要的大小, 所以有时候对span的宽度和高度进行修改，会不生效，如果需要它们生效就需要采用 display: inline-block */
+span, a, img {
+  border: 1px solid blue;
+  width: 200px;
+}
+
+#sentence{
+  background-color: dodgerblue;
+  color: #fff;
 }
