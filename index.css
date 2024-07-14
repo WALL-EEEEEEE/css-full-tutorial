@@ -2,23 +2,50 @@
     margin: 0px;
     padding: 0px;
 }
-/*  box-sizing 指定盒模型的大小的计算模型
 
-border-box 盒模型的大小计算模型包括padding和border的大小
-border-content 盒模型的大小计算模型不包括padding盒border的大小
-*/
-#red {
-  width: 200px;
-  height: 200px;
-  background-color: red;
-  margin: 5px;
-  border: 10px solid black;
-  padding: 20px;
-  box-sizing: border-box;
+.box {
+ width: 50px;
+ height: 50px;
+ background-color: grey;
+ margin: 3px;
 }
 
-#blue {
-  width: 50vw; 
-  height: 200px;
+/* static 表示静态位置，top和left对位置的修改都无效 */
+#static {
+  background-color: red;
+  position: static;
+  left: 200px;
+}
+
+/* relative 表示相对位置，参考对象是自身原来的位置，*/
+#relative {
   background-color: blue;
+  position: relative;
+  left: 200px;
+}
+/* absolute 表示绝对位置，参考对象为最近的设置position属性的父级，如果没有这样的父级元素，就参考 <document> 的body元素的位置  */
+#absolute {
+  background-color: yellow;
+  position: absolute;
+  left: 300px;
+  top: 350px;
+}
+
+/*fixed 表示固定位置，参考对象为当前的视窗，它会随着页面滚动而滚动*/
+#fixed {
+  background-color: green;
+  position: fixed;
+  top: 430px;
+  left: 200px
+}
+
+/*sticky 参考的对象为用户的滚动位置， 如果不滚动，该属性跟fixed类似*/
+#sticky {
+  background-color: lightpink;
+  position: sticky;
+  width: 100%;
+  height: 1.5rem;
+  margin: 0;
+  z-index: -1;
+  top: 223px;
 }
