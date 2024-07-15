@@ -7,39 +7,46 @@
   font-size: 1.2rem;
   text-align: center;
 }
+/*
+  `transition` 可以设置元素的渐变动画属性，但是`transition`生效需要被触发
+*/
 
 .div1 {
   width: 100px;
   height: 100px;
   margin: 50% auto;
-  background-color: dodgerblue;
-  color: #fff;
-  transform: rotate(45deg); /* rotate 控制元素的翻转角度 */
-  transform: scaleY(2); /* scale, scaleX, scaleY 控制元素的拉升倍数 */
-  transform: skewY(20deg); /* skew, skewX,skewY 控制元素的倾斜程度 */
-  transform: translateX(50px); /* translate, translateX, translateY 控制元素的位置 */
-  transform: matrix(2, 1, 1, 2, 70, -200); /* martix([scaleX],[scewY],[scewX],[scaleY],[translateX],[translateY]) */ 
-  display: none;
+  background-color: red;
+
+  transition-property: all; /* 设置渐变动画应用的属性 */
+  transition-delay: 1s;  /* 设置渐变动画的延迟 */
+  transition-duration: .5s; /* 设置渐变动画的持续时间 */
+  /* 设置渐变动画的中间效果变化
+     ease-in 开始变化慢，后面变化正常
+     ease-out 开始变化正常，后面变化慢
+     linear 固定速率变化
+     ease-in-out 开始慢，然后变快，最后又变慢
+     cubic-bezier 指定变化曲线
+     step 指定步值变化
+   */
+  transition-timing-function: ease-in;  
+  transition-timing-function: cubic-bezier(0, .98, 1, -0.02);
+  transition-timing-function: ease-in-out;
+  transition-timing-function: ease-out;
+  /* `transition` 是所有transition属性的缩写
+     1. 生效的属性
+     2. 动画的持续时间
+     3. 动画的中间变化效果
+  */
+  transition: all .5s linear;
+
 }
 
 .div1:hover {
-   cursor: pointer;
-   transition: all 2s linear;
-   transform: rotate(360deg);
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: limegreen;
 }
 
 
-.div2 {
-  width: 100px;
-  height: 100px;
-  margin: 50% auto;
-  background-color: dodgerblue;
-  color: #fff;
-  transform: rotate(0);
-}
 
-.div2:hover {
-  cursor: pointer;
-  transition: all 2s linear;
-  transform: rotateY(360deg);
-}
