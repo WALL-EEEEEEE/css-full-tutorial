@@ -3,50 +3,221 @@
     padding: 0px;
 }
 
+html body {
+   overflow: hidden;
+}
+
 .title {
   font-size: 1.2rem;
   text-align: center;
 }
-/*
-  `transition` 可以设置元素的渐变动画属性，但是`transition`生效需要被触发
-*/
 
-.div1 {
+div.square {
   width: 100px;
   height: 100px;
-  margin: 50% auto;
   background-color: red;
-
-  transition-property: all; /* 设置渐变动画应用的属性 */
-  transition-delay: 1s;  /* 设置渐变动画的延迟 */
-  transition-duration: .5s; /* 设置渐变动画的持续时间 */
-  /* 设置渐变动画的中间效果变化
-     ease-in 开始变化慢，后面变化正常
-     ease-out 开始变化正常，后面变化慢
-     linear 固定速率变化
-     ease-in-out 开始慢，然后变快，最后又变慢
-     cubic-bezier 指定变化曲线
-     step 指定步值变化
-   */
-  transition-timing-function: ease-in;  
-  transition-timing-function: cubic-bezier(0, .98, 1, -0.02);
-  transition-timing-function: ease-in-out;
-  transition-timing-function: ease-out;
-  /* `transition` 是所有transition属性的缩写
-     1. 生效的属性
-     2. 动画的持续时间
-     3. 动画的中间变化效果
+  position: relative;
+  /*
+  animation-name: square;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: none;
+  animation-play-state: running;
   */
-  transition: all .5s linear;
-
+  animation: square 4s linear infinite alternate backwards running;
+  display: none;
 }
 
-.div1:hover {
-  width: 250px;
-  height: 250px;
+div.squre:hover {
+  animation-name: square;
+  animation-play-state: paused;
+}
+
+/* demo for loading animation */
+div.loading_circle {
+  width: 200px;
+  height: 200px;
+  border: 15px solid red;
+  margin: 0 auto;
+  margin-top: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
-  background-color: limegreen;
+  animation: loading_circle 2s infinite forwards;
+  display: none;
+}
+
+div.loading_square {
+  width: 75px;
+  height: 75px;
+  border: 5px solid limegreen;
+  animation: loading_square 2s infinite ease-in-out alternate-reverse;
+  display: none;
+}
+
+@keyframes square {
+  /*
+  from {background-color: red;}
+  to {background-color: blue;}
+  */
+  0% {
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    background-color: gold;
+    left: 500px;
+    top: 0px;
+  }
+  50% {
+    background-color: lime;
+    left: 500px;
+    top: 500px;
+    border-radius: 50%;
+  }
+  75% {
+    background-color: dodgerblue;
+    left: 0px;
+    top: 500px;
+  }
+  100% {
+    background-color: blue;
+    left: 0px;
+    top: 0px;
+    border-radius: 0;
+  }
+  
+}
+
+@keyframes loading_circle {
+
+  0% {
+    border-color: red;
+    transform: scale(1);
+  }
+  25% {
+    border-color: gold;
+    transform: scale(1.1);
+  }
+  50% {
+    border-color: lime;
+    transform: scale(1.3);
+  }
+  75% {
+    border-color: dodgerblue;
+    transform: scale(1.1);
+  }
+  100% {
+    border-color: purple;
+    transform: scale(1);
+  }
+}
+
+@keyframes loading_square{
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    border-color: aqua;
+    border-width: 10px;
+  }
+  50% {
+    border-color: coral;
+    border-width: 20px;
+  }
+  75% {
+    border-color: yellow;
+    border-width: 40px;
+  }
+  100% {
+    border-width: 5px;
+    transform: rotate(360deg);
+  }
+}
+
+/* demo for super miro coins */
+div#super_mario_coin {
+  height: 100%;
+  width: 100%;
+  /*background-color: aqua; */
+}
+
+div#mario {
+  background-image: url(./images/mario.png);
+  background-clip: border-box;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  position: relative;
+  margin-top: 4vh;
+  margin-left: 90vw;
+  width: 100px;
+  height: 300px;
+
 }
 
 
+
+div#coin {
+  width: 70px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-image: url(images/coin.webp);
+  background-size: contain;
+  background-clip: border-box;
+  z-index: 1;
+  position: relative;
+  right: 85px;
+  bottom: 90px;
+  animation: coin 0.9s linear infinite forwards;
+}
+
+div#block {
+  height: 80px;
+  width: 80px;
+  background-repeat: no-repeat;
+  background-image: url(images/block.webp);
+  background-size: contain;
+  background-clip: border-box;
+  display: inline-block;
+  opacity: 1;;
+  z-index: 2;
+  margin-top: 50vh; 
+  margin-left: 50vw; 
+  /*background-color: red; */
+  animation: jump 0.6s linear infinite alternate;
+}
+
+@keyframes coin {
+   0% {
+    transform: translateX(100px) translateY(0px) rotateY(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(80px) translateY(-100px) rotateY(180deg);
+  }
+  100% {
+    transform: translateX(80px) translateY(-100px) rotateY(360deg);
+    opacity: 0;
+  }
+ 
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 
