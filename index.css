@@ -17,17 +17,16 @@ div.square {
   height: 100px;
   background-color: red;
   position: relative;
-  /*
-  animation-name: square;
-  animation-duration: 4s;
-  animation-timing-function: linear;
-  animation-delay: 2s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-fill-mode: none;
-  animation-play-state: running;
-  */
-  animation: square 4s linear infinite alternate backwards running;
+
+  animation-name: square;  /* 设置动画名字 */
+  animation-duration: 4s;  /* 设置动画的持续时间 */
+  animation-timing-function: linear; /* 设置动画的中间效果变化 */
+  animation-delay: 2s;     /* 设置动画的延迟时间 */
+  animation-iteration-count: infinite; /* 设置动画的运行的次数 */
+  animation-direction: alternate; /* 设置动画的方向  */
+  animation-fill-mode: none; /* 设置动画样式应用的时机 */
+  animation-play-state: running; /*设置动画的状态，可以用这个控制动画的暂停和运行 */
+  animation: square 4s linear infinite alternate backwards running; /* 1. 动画名 2. 动画持续时间 3. 动画中间效果变化 4. 动画延迟时间 5. 动画持续次数 6. 动画的方向 7. 动画样式应用 8. 动画的状态 9. 动画的时间线 */
   display: none;
 }
 
