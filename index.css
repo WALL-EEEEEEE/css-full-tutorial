@@ -6,40 +6,100 @@
 html body {
    overflow: hidden;
 }
-/* 定义全局变量，全局变量可以被任何元素访问*/
-:root {
-  --gradientBG: linear-gradient(to bottom right, #495aff, #0acffe);
-  --mainFont: arial, sans-serif;
-  --boxShadow: 2px 5px 10px grey;
-  --borderRadius: 8px;
-  --newColor: red;
-  --newBorder: 2px solid var(--newColor);
-  --fallbackValue: red;
-}
+.item {
+  /*
+  flex-basis: 用来设置在flex布局中元素的大小
+  flex-basis同时也是max-width, min-width的限制
+  flex-basis = flex-basis > max-width?max-width:flex-basis
+  flex-basis = flex-basis < min-width?min-width:flex-basis
 
-/* 定义局部变量，局部变量只能在定义的局部范围使用 */
-#scoped {
+  flex-basis不会导致overflow的问题
+  */
+  flex-basis: 200px; 
+  /*
+  max-width: 50px;
+  min-width: 20px;
+  */
+  /* width: 80px;  */
+  height: 30px;
+  border-radius: 10%;
+  /**
+  text-align: center;
+  justify-content: center;
+  padding-top: 9px;
+  */
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
-  --scopedColor: red;
-  --scopedFontSize: 30px;
+  align-items: center;
+  background-color: aquamarine;
+  /* flex [grow] [shrink] [basis] */
+  flex: 0 0 50px;
 }
 
-#scoped button {
-  padding: 6px 12px;
-  letter-spacing: 0.5px;
-  border: none;
-  color: #ffffff;
-  background-color: #222222;
-  font-size: 20px;
-  cursor: pointer;
-  font-size: var(--scopedFontSize);
-  background-color: var(--scopedColor);
+#container {
+  width: 1000px;
+  height: 400px;
+  background-color: #4524FB;
+  margin: 80px auto;
+  border-radius: 8px;
+  display: flex; /* 设置布局为flex布局 */
+  flex-direction: row; /* 设置布局方向为水平方向，所有的元素按照水平方向进行摆放 */
+  flex-wrap: wrap; /* flex-wrap: wrap 是将所有元素分成多行， no-wrap 将所有元素分成一行 */
+  flex-wrap: wrap-reverse;  /* wrap-reverse 将所有元素从底部开始分成多行 */
+  /* flex-flow [flex-direction] [flex-wrap] */
+  flex-flow: row wrap; 
+  /* 
+  justify-content 水平对齐flex中的元素中的间隔, 
+  justify-content: center 居中对齐 
+  justify-content: space-evenly 保证元素水平之间的间距一致
+   */
+  justify-content: center;
+  justify-content: space-evenly;
+  /* 
+  align-items 垂直对齐flex中的元素 
+  align-items: center 居中对齐
+  align-items: baseline 根据元素中的内容的基线对齐
+  */
+  align-items: center;
+
+  /* 
+  align-content 水平对齐flex中的元素的间隔 
+  align-content: center 居中对齐
+  align-content: flex-start 顶部
+  align-content: space-evenly 垂直方向保证间隔一样
+  */
+  align-content: center;
+  align-content: flex-start;
+  align-content: space-evenly;
+  align-content: space-between;
+  align-content: space-around;
 }
 
-.title {
-  font-size: 1.2rem;
-  text-align: center;
+/* order 可以定制元素在flex的先后顺序， 默认元素顺序是按照其的定义顺序
+   小的在前,大的在后
+ */
+.one {
+  order: 1;
+  /* flex-grow 设置元素放大的大小关系 */
+  /* flex-grow: 1; */ 
+  /* flex-shrink 设置元素缩小的大小关系 */
+  /* flex-shrink: 1; */
 }
-
+.two {
+  order: 10;
+  /* flex-grow: 1; */
+  /* flex-shrink: 1; */  
+}
+.three {
+  order: 5;
+  /* align-self 用来指定当前flex布局下的元素的垂直位置，它会覆盖align-items的值
+  */
+  align-self: flex-end;
+  /* flex-grow: 1; */
+  /* flex-shrink:1; */
+}
+.four {
+  order: -100;
+ /* flex-grow: 1; */
+ /* flex-shrink: 1; */
+}
