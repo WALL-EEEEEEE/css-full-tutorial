@@ -6,100 +6,134 @@
 html body {
    overflow: hidden;
 }
-.item {
-  /*
-  flex-basis: 用来设置在flex布局中元素的大小
-  flex-basis同时也是max-width, min-width的限制
-  flex-basis = flex-basis > max-width?max-width:flex-basis
-  flex-basis = flex-basis < min-width?min-width:flex-basis
-
-  flex-basis不会导致overflow的问题
-  */
-  flex-basis: 200px; 
-  /*
-  max-width: 50px;
-  min-width: 20px;
-  */
-  /* width: 80px;  */
-  height: 30px;
-  border-radius: 10%;
-  /**
-  text-align: center;
-  justify-content: center;
-  padding-top: 9px;
-  */
+h1.title {
+  width: 100vw;
+  font-size: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: aquamarine;
-  /* flex [grow] [shrink] [basis] */
-  flex: 0 0 50px;
+
+}
+h1.title span {
+  font-size: medium;
 }
 
 #container {
-  width: 1000px;
-  height: 400px;
-  background-color: #4524FB;
-  margin: 80px auto;
-  border-radius: 8px;
-  display: flex; /* 设置布局为flex布局 */
-  flex-direction: row; /* 设置布局方向为水平方向，所有的元素按照水平方向进行摆放 */
-  flex-wrap: wrap; /* flex-wrap: wrap 是将所有元素分成多行， no-wrap 将所有元素分成一行 */
-  flex-wrap: wrap-reverse;  /* wrap-reverse 将所有元素从底部开始分成多行 */
-  /* flex-flow [flex-direction] [flex-wrap] */
-  flex-flow: row wrap; 
+  width: 95vw;
+  height: 60vh;
+  margin: 0 auto;
+  background-color: whitesmoke;
+  outline: 8px solid #4834D4;
   /* 
-  justify-content 水平对齐flex中的元素中的间隔, 
-  justify-content: center 居中对齐 
-  justify-content: space-evenly 保证元素水平之间的间距一致
-   */
-  justify-content: center;
-  justify-content: space-evenly;
-  /* 
-  align-items 垂直对齐flex中的元素 
-  align-items: center 居中对齐
-  align-items: baseline 根据元素中的内容的基线对齐
+  display: grid 采用grid布局
   */
-  align-items: center;
+  display: grid; 
+  /*
+  grid-template-columns: 指定列的宽度和列个数
+  */
+  /*
+  指定4列，第一列为200px, 第二列为200px, 第三列为200px, 第四列自动
+  */
+  grid-template-columns: 200px 200px 200px auto;
+  /*
+  指定3列，第一列为50%宽度, 第二列为20%宽度, 第三列为25%宽度
+  */
+  grid-template-columns: 50% 20% 25%;
+  /*
+  指定3列，每列都为1/3大小, fr为flex布局中的动态大小单位。
+  */
+  grid-template-columns: 1fr 1fr 1fr;
+  /*
+  同上 
+  */
+  grid-template-columns: repeat(3, 1fr);
+  /*
+  指定两列，第一列为1/2大小，第二列为最小300px大小，最大为1/2大小
+  */
+  grid-template-columns: 1fr minmax(300px, 1fr);
+  /*
+  指定列大小为300px，不指定列数，由grid布局根据当前的可用空间生成对应的列数量填充
+  如果可用空间多余300px，那么会自动生成一个空白的列
+  */
+  grid-template-columns: repeat(auto-fill, 300px);
+  /*
+  指定列大小为300px，不指定列数，grid布局不会根据当前的可用空间生成对应的列数量
+  */
+  grid-template-columns: repeat(auto-fit, 300px);
+  /*
+  指定4列
+  第1列  [col-start](名字) 1fr (大小)
+  第2列  [col-2](名字) 1fr (大小)
+  第3列  [col-3](名字) 1fr (大小)
+  第4列  [col-end](名字) 1fr (大小)
+  指定列名，方便处理列移动
+  */
+  grid-template-columns: [col-start] 1fr [col-2] 1fr [col-3] 1fr [col-end];
+
+  /*
+  指定两行，第一行为100px高，第二行为50px高
+  */
+  grid-template-rows: 100px 50px;
+  /*
+  指定默认生成的列的宽度为50px (即没有被grid-template-columns明显指定的)
+  */
+  grid-auto-columns: 50px;
+  /*
+  指定默认生成的列的宽度为50px (即没有被grid-template-rows明显指定的)
+  */
+  grid-auto-rows: 50px;
+  /*
+  grid-auto-flow: 指定生成的元素的排列方式
+  */
+  /* 按照行排列 */
+  grid-auto-flow: row;
+  /* 按照列排列 */
+  grid-auto-flow: column;
+  grid-auto-flow: row;
+  /* 按照紧凑排列 */
+  /* grid-auto-flow: dense; */
+
+  /* 设置列之间的间隔 */
+  grid-column-gap: 10px;
+  /* 设置行之间的间隔 */
+  grid-row-gap: 10px;
+  /* grid-gap 是grid-column-gap和grid-row-gap两个的简写 
+  grid-gap [grid-row-gap] [grid-column-gap]
+  */
+  grid-gap: 5px;
+  align-items: start;
+  align-items: end;
+  align-items: stretch;
+  justify-items: start;
+  justify-items: end;
+  justify-items: stretch;
 
   /* 
-  align-content 水平对齐flex中的元素的间隔 
-  align-content: center 居中对齐
-  align-content: flex-start 顶部
-  align-content: space-evenly 垂直方向保证间隔一样
+  place-items 是align-items和justify-items的简写
+  place-items: [align-items] [justify-items]
   */
+  place-items: center stretch;
+
   align-content: center;
-  align-content: flex-start;
-  align-content: space-evenly;
-  align-content: space-between;
-  align-content: space-around;
+  justify-content: space-evenly;
+  /*
+  place-content 是align-conent和justify-content的简写
+  place-content: [align-content] [justify-content]
+  */
+  place-content: center space-evenly;
+
+
+}
+#container>.item {
+  background-color: goldenrod;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* order 可以定制元素在flex的先后顺序， 默认元素顺序是按照其的定义顺序
-   小的在前,大的在后
- */
-.one {
-  order: 1;
-  /* flex-grow 设置元素放大的大小关系 */
-  /* flex-grow: 1; */ 
-  /* flex-shrink 设置元素缩小的大小关系 */
-  /* flex-shrink: 1; */
+/*
+.thirteen {
+  grid-column: 10/11; 
 }
-.two {
-  order: 10;
-  /* flex-grow: 1; */
-  /* flex-shrink: 1; */  
-}
-.three {
-  order: 5;
-  /* align-self 用来指定当前flex布局下的元素的垂直位置，它会覆盖align-items的值
-  */
-  align-self: flex-end;
-  /* flex-grow: 1; */
-  /* flex-shrink:1; */
-}
-.four {
-  order: -100;
- /* flex-grow: 1; */
- /* flex-shrink: 1; */
-}
+*/
