@@ -28,67 +28,8 @@ h1.title span {
   display: grid 采用grid布局
   */
   display: grid; 
-
-
-  /*
-  grid-template-columns: [col-start] 1fr [col-2] 1fr [col-3] 1fr [col-end];
-  grid-auto-rows: 60px auto 100px;
-  */
-
-  /*
-  grid-template-areas 按照行列指定特定的区域布局
-  将grid分为4个部分，第一行全部为header, 第二行2/3为 main,1/3 为sidebar, 第三行为footer
-  */
-
-  /* 
-  grid-template-areas: 
-  "header header header"
-  "main main sidebar"
-  "footer footer footer";
- */
-
- /*
- grid-template 是grid-template-areas,grid-template-columns盒grid-auto-rows的简写，具体格式为
-
- grid-template:
- [grid-template-areas row-1] [grid-auto-rows row-1]
- [grid-template-areas row-2] [grid-auto-rows row-2]
- ...
- [grid-template-areas row-end] [grid-auto-rows row-end]/[grid-template-columns]
- ;
- */
-/* 
-  grid-template:
-  "header header header" 60px
-  "main main sidebar" auto
-  "footer footer footer" 100px
-  /[col-start] 1fr [col-2] 1fr [col-3] 1fr [col-end];
- */
-
-grid-template-rows: 50px 200px;
-grid-template-columns: repeat(3, 1fr);
-grid-auto-rows: 100px;
-grid-auto-flow: row;
-
-/*
-grid是grid-template-rows, grid-template-columns 或者 grid-auto-rows和grid-auto-flow的简写
-grid不能同时设置 行列(grid-template-rows, grid-template-columns) 和 隐行列(grid-auto-rows, grid-auto-flow, grid-auto-columns)
-*/
-/* 
-相当于:
-grid-template-rows: 50px 200px;
-grid-template-columns: repeat(3, 1fr);
-*/
-grid: 50px 200px / repeat(3, 1fr);
-
-/* 
-相当于:
-grid-auto-rows: 100px;
-grid-auto-flow: row;
-grid-auto-columns: repeat(3, 1fr);
-*/
-grid: auto-flow 100px/repeat(3, 1fr);
-
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
 }
 
 #container>.item {
@@ -96,23 +37,39 @@ grid: auto-flow 100px/repeat(3, 1fr);
   align-items: center;
   justify-content: center;
   font-size: 3rem;
+  background-color: rgb(252, 192, 41);
   border-radius: 3px;
   border: 1px solid grey;
 }
 
-.header {
-  grid-area: header;
-}
+.one {
+  /*
+  grid-column 相关属性用来指定单独指定grid中的元素的列位置和大小，主要难过通过起始位置，结束位置/跨列数 来指定
+  grid-column-start 指定起始列 （可以用数字，或者列名)
+  grid-column-end 结束列 (可以用数字，或者列名)
+  */
 
-.main {
-  grid-area: main;
-}
+  grid-column-start: 1;
+  grid-column-start: col-start;
+  grid-column-end: 3;
+  grid-column-end: 4;
+  grid-column-end: -1;
+  grid-column-end: span 3;
+  grid-column-end: span col-2;
 
-.sidebar {
-  grid-area: sidebar
+  /*
+  grid-column是grid-column-start和grid-column-end的简写
+  grid-column: [grid-column-start]/[grid-column-end]
+  */
+  grid-column: col-start/span col-2;
 }
-
-.footer {
-  grid-area: footer;
+.two {
+  /*
+  grid-row 相关属性用来指定单独指定grid中的元素的行位置和大小，主要难过通过起始位置，结束位置/跨行数 来指定
+  grid-row-start 指定起始行 （可以用数字，或者行名)
+  grid-row-end 结束行 (可以用数字，或者行名)
+  */
+  grid-row-start: 2;
+  grid-row-end: 5;
+  grid-row: 2/5;
 }
-
