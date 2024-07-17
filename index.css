@@ -28,8 +28,17 @@ h1.title span {
   display: grid 采用grid布局
   */
   display: grid; 
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
+  grid-template-columns: 
+  [col-start] 1fr
+  [col-2] 1fr
+  [col-3] 1fr
+  [col-end];
+  grid-template-rows: 60px auto 60px;
+  grid-template-areas: 
+  "h h h"
+  "m m s"
+  "f f f"
+  ;
 }
 
 #container>.item {
@@ -42,58 +51,18 @@ h1.title span {
   border: 1px solid grey;
 }
 
-.one {
+.header {
   /*
-  grid-column 相关属性用来指定单独指定grid中的元素的列位置和大小，主要难过通过起始位置，结束位置/跨列数 来指定
-  grid-column-start 指定起始列 （可以用数字，或者列名)
-  grid-column-end 结束列 (可以用数字，或者列名)
+  grid-area 可以配合 grid-template-areas 一起使用
   */
-/* 
-  grid-column-start: 1;
-  grid-column-start: col-start;
-  grid-column-end: 3;
-  grid-column-end: 4;
-  grid-column-end: -1;
-  grid-column-end: span 3;
-  grid-column-end: span col-2;
- */
-  /*
-  grid-column是grid-column-start和grid-column-end的简写
-  grid-column: [grid-column-start]/[grid-column-end]
-  */
-/* 
-  grid-column: col-start/span col-2;
- */
+  grid-area: h; 
 }
-.two {
-  /*
-  grid-row 相关属性用来指定单独指定grid中的元素的行位置和大小，主要难过通过起始位置，结束位置/跨行数 来指定
-  grid-row-start 指定起始行 （可以用数字，或者行名)
-  grid-row-end 结束行 (可以用数字，或者行名)
-  grid-row-start: 2;
-  grid-row-end: 5;
-  grid-row: 2/5;
-  */
-
-  /*
-  grid-area 可以用来做 grid-row-start, grid-column-start, grid-row-end, grid-column-end 等的简写
-  grid-area: [grid-row-start] [grid-column-start] [grid-row-end] [grid-column-end]
-  */
-  grid-area: 2 / 1 / 5 / 2; 
+.main {
+  grid-area: m;
 }
-
-.five {
-  /*
-  align-self 用来指定当前元素在grid区域 (也就是grid cell中)的垂直对齐
-  */
-  /* align-self: center; */
-  /*
-  justify-self 用来指定当前元素在grid区域 (也就是grid cell中)的水平对齐
-  */
-  /* justify-self: center; */
-  /*
-  place-self 是align-self和justify-self的简写
-  place-self [align-self] [justify-self]
-  */
-  /* place-self: center; */
+.sidebar {
+  grid-area: s;
+}
+.footer {
+  grid-area: f;
 }
