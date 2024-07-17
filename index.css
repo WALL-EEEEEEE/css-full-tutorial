@@ -4,7 +4,7 @@
 }
 
 html body {
-   overflow: hidden;
+   overflow: scroll;
 }
 h1.title {
   width: 100vw;
@@ -21,119 +21,98 @@ h1.title span {
 #container {
   width: 95vw;
   height: 60vh;
-  margin: 0 auto;
+  margin: 30px auto; 
   background-color: whitesmoke;
   outline: 8px solid #4834D4;
   /* 
   display: grid 采用grid布局
   */
   display: grid; 
+
+
   /*
-  grid-template-columns: 指定列的宽度和列个数
-  */
-  /*
-  指定4列，第一列为200px, 第二列为200px, 第三列为200px, 第四列自动
-  */
-  grid-template-columns: 200px 200px 200px auto;
-  /*
-  指定3列，第一列为50%宽度, 第二列为20%宽度, 第三列为25%宽度
-  */
-  grid-template-columns: 50% 20% 25%;
-  /*
-  指定3列，每列都为1/3大小, fr为flex布局中的动态大小单位。
-  */
-  grid-template-columns: 1fr 1fr 1fr;
-  /*
-  同上 
-  */
-  grid-template-columns: repeat(3, 1fr);
-  /*
-  指定两列，第一列为1/2大小，第二列为最小300px大小，最大为1/2大小
-  */
-  grid-template-columns: 1fr minmax(300px, 1fr);
-  /*
-  指定列大小为300px，不指定列数，由grid布局根据当前的可用空间生成对应的列数量填充
-  如果可用空间多余300px，那么会自动生成一个空白的列
-  */
-  grid-template-columns: repeat(auto-fill, 300px);
-  /*
-  指定列大小为300px，不指定列数，grid布局不会根据当前的可用空间生成对应的列数量
-  */
-  grid-template-columns: repeat(auto-fit, 300px);
-  /*
-  指定4列
-  第1列  [col-start](名字) 1fr (大小)
-  第2列  [col-2](名字) 1fr (大小)
-  第3列  [col-3](名字) 1fr (大小)
-  第4列  [col-end](名字) 1fr (大小)
-  指定列名，方便处理列移动
-  */
   grid-template-columns: [col-start] 1fr [col-2] 1fr [col-3] 1fr [col-end];
+  grid-auto-rows: 60px auto 100px;
+  */
 
   /*
-  指定两行，第一行为100px高，第二行为50px高
+  grid-template-areas 按照行列指定特定的区域布局
+  将grid分为4个部分，第一行全部为header, 第二行2/3为 main,1/3 为sidebar, 第三行为footer
   */
-  grid-template-rows: 100px 50px;
-  /*
-  指定默认生成的列的宽度为50px (即没有被grid-template-columns明显指定的)
-  */
-  grid-auto-columns: 50px;
-  /*
-  指定默认生成的列的宽度为50px (即没有被grid-template-rows明显指定的)
-  */
-  grid-auto-rows: 50px;
-  /*
-  grid-auto-flow: 指定生成的元素的排列方式
-  */
-  /* 按照行排列 */
-  grid-auto-flow: row;
-  /* 按照列排列 */
-  grid-auto-flow: column;
-  grid-auto-flow: row;
-  /* 按照紧凑排列 */
-  /* grid-auto-flow: dense; */
-
-  /* 设置列之间的间隔 */
-  grid-column-gap: 10px;
-  /* 设置行之间的间隔 */
-  grid-row-gap: 10px;
-  /* grid-gap 是grid-column-gap和grid-row-gap两个的简写 
-  grid-gap [grid-row-gap] [grid-column-gap]
-  */
-  grid-gap: 5px;
-  align-items: start;
-  align-items: end;
-  align-items: stretch;
-  justify-items: start;
-  justify-items: end;
-  justify-items: stretch;
 
   /* 
-  place-items 是align-items和justify-items的简写
-  place-items: [align-items] [justify-items]
-  */
-  place-items: center stretch;
+  grid-template-areas: 
+  "header header header"
+  "main main sidebar"
+  "footer footer footer";
+ */
 
-  align-content: center;
-  justify-content: space-evenly;
-  /*
-  place-content 是align-conent和justify-content的简写
-  place-content: [align-content] [justify-content]
-  */
-  place-content: center space-evenly;
+ /*
+ grid-template 是grid-template-areas,grid-template-columns盒grid-auto-rows的简写，具体格式为
 
+ grid-template:
+ [grid-template-areas row-1] [grid-auto-rows row-1]
+ [grid-template-areas row-2] [grid-auto-rows row-2]
+ ...
+ [grid-template-areas row-end] [grid-auto-rows row-end]/[grid-template-columns]
+ ;
+ */
+/* 
+  grid-template:
+  "header header header" 60px
+  "main main sidebar" auto
+  "footer footer footer" 100px
+  /[col-start] 1fr [col-2] 1fr [col-3] 1fr [col-end];
+ */
 
-}
-#container>.item {
-  background-color: goldenrod;
-  border: 1px solid white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+grid-template-rows: 50px 200px;
+grid-template-columns: repeat(3, 1fr);
+grid-auto-rows: 100px;
+grid-auto-flow: row;
 
 /*
-.thirteen {
-  grid-column: 10/11; 
-}
+grid是grid-template-rows, grid-template-columns 或者 grid-auto-rows和grid-auto-flow的简写
+grid不能同时设置 行列(grid-template-rows, grid-template-columns) 和 隐行列(grid-auto-rows, grid-auto-flow, grid-auto-columns)
 */
+/* 
+相当于:
+grid-template-rows: 50px 200px;
+grid-template-columns: repeat(3, 1fr);
+*/
+grid: 50px 200px / repeat(3, 1fr);
+
+/* 
+相当于:
+grid-auto-rows: 100px;
+grid-auto-flow: row;
+grid-auto-columns: repeat(3, 1fr);
+*/
+grid: auto-flow 100px/repeat(3, 1fr);
+
+}
+
+#container>.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  border-radius: 3px;
+  border: 1px solid grey;
+}
+
+.header {
+  grid-area: header;
+}
+
+.main {
+  grid-area: main;
+}
+
+.sidebar {
+  grid-area: sidebar
+}
+
+.footer {
+  grid-area: footer;
+}
+
