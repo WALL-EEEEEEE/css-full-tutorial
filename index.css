@@ -35,7 +35,8 @@ h1.title span {
   grid-template-rows: 1fr;
   grid-template-areas:
     "nav main profile";
-  background-color: #dee2eb;
+  /* background-color: #dee2eb; */
+  background-image: linear-gradient(90deg, #cfd9df 0%, #e2ebf0 100%);
 }
 
 #nav {
@@ -45,8 +46,10 @@ h1.title span {
   grid-template-rows: 1fr 3fr;
   justify-content: center;
   align-items: center;
+  justify-self: self-end;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+  width: 65%;
 
   .nav-menu {
     display: flex;
@@ -379,7 +382,7 @@ h1.title span {
       flex-direction: column;
       padding: 5%;
       color: #313248;
-      justify-content: center;
+      justify-content: space-between;
 
       .course-logo-box {
         height: 50px;
@@ -409,6 +412,7 @@ h1.title span {
       }
 
       .course-name {
+        margin-top: 2%;
         flex-basis: 40%;
         font-size: 1.7rem;
         max-width: 60%;
@@ -419,6 +423,7 @@ h1.title span {
         max-width: 60%;
         line-height: 2rem;
         box-sizing: border-box;
+        margin-top: 6%;
 
         .loader-line {
           height: 6px;
@@ -545,7 +550,7 @@ h1.title span {
 
     .avatar {
       flex-basis: 80%;
-      background-image: linear-gradient(90deg, #108dc7 0%, #ef8e38 100%);
+      background-image: linear-gradient(90deg, #22c1c3 0%, #fdbb2d 100%);  
       border-radius: 50%;
       width: 90px;
       height: 90px;
