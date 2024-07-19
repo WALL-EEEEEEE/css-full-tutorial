@@ -80,6 +80,8 @@ h1.title span {
     align-items: center;
 /*    grid-row: 1/2;*/
     align-self: self-start;
+    box-shadow: 2px 2px 10px 2px #dadbde;
+    border-radius: var(--border-radius);
 
   }
 
@@ -99,8 +101,8 @@ h1.title span {
     border-top: 6px solid #fa5f1d;
     border-right: 6px solid #fa5f1d;
     border-bottom: 6px solid #fa5f1d;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
+    border-top-right-radius: 80%;
+    border-bottom-right-radius: 80%;
   }
 
   #logo>.logo-p::after {
